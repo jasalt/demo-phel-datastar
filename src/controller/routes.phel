@@ -2,12 +2,27 @@
   (:require web-skeleton\view\main :refer [index-html])
   (:require web-skeleton\module\greet :as g)
   (:require phel\router :as r)
-  (:require phel\http :as h))
+  (:require phel\http :as h)
+  (:require phel\html :refer [html doctype raw-string])
+  (:use \starfederation\datastar\ServerSentEventGenerator)
+  )
 
 (defn index-handler [req]
   (h/response-from-map {:status 200
                         :body index-html}))
 
-(defn ping-handler [req]
-  (h/response-from-map {:status 200
-                        :body (g/greet (str "pong - " (rand)))}))
+(defn fragment-handler [req]
+  (let [sse (php/new ServerSentEventGenerator)]
+      (dofor [x :range [0 10]]
+        (php/-> sse (mergeFragments
+                     (html [:div {:id "fragment-container"}
+                            "Time at backend: " (php/time)])))
+        (php/sleep 1)  # requests are blocked during this sleep..
+        )))
+
+(defn signal-handler [req]
+  (let [sse (php/new ServerSentEventGenerator)]
+    (php/-> sse (mergeSignals
+                 (to-php-array {"input" (str "hostname: " (php/gethostname))})))
+    )
+  )

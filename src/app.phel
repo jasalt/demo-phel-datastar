@@ -7,9 +7,12 @@
   (r/handler
    (r/router
     [["/" {:handler routes/index-handler}]
-     ["/ping" {:name ::ping
-               :get {:handler routes/ping-handler}
-               :post {:handler routes/ping-handler}}]])))
+     ["/fragment" {:name ::fragment
+                   :get {:handler routes/fragment-handler}
+                   :post {:handler routes/fragment-handler}}]
+     ["/signal" {:name ::signal
+                 :get {:handler routes/signal-handler}
+                 :post {:handler routes/signal-handler}}]])))
 
 (when-not *build-mode*
   (h/emit-response (app (h/request-from-globals))))
