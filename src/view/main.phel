@@ -9,9 +9,15 @@
    [:link {:rel "icon" :type "image/png" :href "./images/favicon-32.png"}]
    [:title "Phel-lang"]])
 
+(def- datastar-demo
+  [:div {:data-signals-delay "400" :class "flex-center position-ref" :style "margin-top:2em;"}
+   [:img {:src "https://data-star.dev/static/images/rocket.png" :width "50"
+          :class "content"}]
+   ])
+
 (def- logo
   [:div {:class "logo"}
-   [:img {:src "./images/logo.svg" :width "360"}]])
+   [:img {:src "./images/logo.svg" :width "75"}]])
 
 (def- links
   [:div {:class "links"}
@@ -21,10 +27,11 @@
    [:a {:href "https://gitter.im/phel-lang/community"} "Community"]])
 
 (def- content
-  [:div {:class "flex-center position-ref full-height"}
+  [:div {:class "flex-center position-ref" :style "margin-top: 5em;"}
    [:div {:class "content"} logo links]])
 
 (def index-html (html
                  (doctype :html5)
                  head
+                 datastar-demo
                  content))
