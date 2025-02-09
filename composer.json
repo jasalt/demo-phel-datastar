@@ -13,7 +13,8 @@
   "require": {
     "php": ">=8.2",
     "phel-lang/phel-lang": "^0.16",
-    "phel-lang/router": "^0.6"
+    "phel-lang/router": "^0.6",
+    "starfederation/datastar-php": "dev-main"
   },
   "require-dev": {
     "symfony/var-dumper": "^6.4"
