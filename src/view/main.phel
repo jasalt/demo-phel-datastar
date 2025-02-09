@@ -12,14 +12,23 @@
    [:title "Phel-lang"]])
 
 (def- input-binding-demo
-  [:div {:class "flex-center position-ref" :style "margin-top:2em; margin-bottom:2em;"}
-   [:input {:data-bind-input "" :placeholder "Input binding demo"}]
-   [:div {:data-text "$input"} "I will be replaced with the contents of the input signal"]])
+  [:div {:class "flex-center position-ref" :style "margin-top:2em;"}
+   [:input {:data-bind-input "" :placeholder "Input binding demo" :style "margin-right: 1em;"}]
+   [:div {:data-text "'\"' + $input + '\"'"} "I will be replaced with the contents of the input signal"]
+   [:p {:data-text "'.length() = ' + $input.length"}]
+   ]
+  )
+
+(def- counter-demo
+  [:div {:class "flex-center position-ref"}
+   [:button {:data-signals-counter "0" :data-on-click "$counter++" :style "margin-right: 1em"}
+    "Increment counter"]
+   [:p {:data-text "$counter"}]
+   ])
 
 (def- wip-demo
   [:div {:data-signals-delay "400" :class "flex-center position-ref" :style "margin-top:2em;"}
-   [:img {:src "https://data-star.dev/static/images/rocket.png" :width "50"
-          :class "content"}]
+   [:img {:src "https://data-star.dev/static/images/rocket.png" :width "50" :class "content"}]
    ## <input data-bind-delay id="delay" type="number" step="100" min="0" class="w-36 rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-sky-500 focus:outline focus:outline-sky-500 dark:disabled:border-gray-700 dark:disabled:bg-gray-800/20" />
    ## [:input  {:data-bind-delay ""}]
    # (raw-string "<input data-bind-delay id='delay' type='number' step='100' min='0' class='w-36 rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-sky-500 focus:outline focus:outline-sky-500 dark:disabled:border-gray-700 dark:disabled:bg-gray-800/20' />")
@@ -33,14 +42,14 @@
 
 
 (def- logo
-  [:div {:class "logo"}
+  [:div {:class "logo" :style "margin-top:2em;"}
    [:img {:src "./images/logo.svg" :width "75"}]
    [:img {:src "https://data-star.dev/static/images/rocket.png" :width "50"}]])
 
 
 (def- content
   [:div {:class "flex-center position-ref" :style "margin-top: 1em;"}
-   [:div {:class "content"} input-binding-demo logo]])
+   [:div {:class "content"} input-binding-demo counter-demo logo]])
 
 (def index-html (html
                  (doctype :html5)
