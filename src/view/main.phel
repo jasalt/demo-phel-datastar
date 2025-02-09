@@ -12,18 +12,20 @@
    [:title "Phel-lang"]])
 
 (def- input-binding-demo
-  [:div {:class "flex-center position-ref" :style "margin-top:2em;"}
-   [:input {:data-bind-input "" :placeholder "Input binding demo" :style "margin-right: 1em;"}]
-   [:div {:data-text "'\"' + $input + '\"'"} "I will be replaced with the contents of the input signal"]
+  [:div {:class "flex-center" :style "margin-top:2em;"}
+   [:input {:data-bind "input" :placeholder "Input binding demo" :style "margin-right: 1em;"}]
+   [:div {
+          :data-text "'\"' + $input + '\"'"}]
    [:p {:data-text "'.length() = ' + $input.length"}]
    ]
   )
 
 (def- counter-demo
   [:div {:class "flex-center position-ref"}
-   [:button {:data-signals-counter "0" :data-on-click "$counter++" :style "margin-right: 1em"}
-    "Increment counter"]
-   [:p {:data-text "$counter"}]
+   [:p {:data-show "$counter == 0"} "Counter"]
+   [:button {:data-signals-counter "0" :data-on-click "$counter++" :style "margin-right: 1em; margin-left: 1em;"}
+    "Increment"]
+   [:p {:data-show "$counter != 0" :data-text "$counter"}]
    ])
 
 (def- wip-demo
