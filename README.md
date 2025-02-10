@@ -24,7 +24,7 @@ Code used for fragment and signal endpoints using ServerSentEventGenerator from 
 
 ```
 
-Main view at `src/web-skeleton/view/main`.
+Main view at [`src/view/main.phel`](https://github.com/jasalt/demo-phel-datastar/blob/main/src/view/main.phel).
 
 PHP and Go differences are discussed in Datastar podcast video https://www.youtube.com/watch?v=hUqFY9TQvdM.
 
