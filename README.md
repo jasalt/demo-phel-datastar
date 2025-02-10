@@ -6,7 +6,7 @@ Vanilla PHP being single threaded and non-async the web UI gets blocked and queu
 
 https://github.com/user-attachments/assets/a3ad3fd8-2e30-462a-99ef-439fb479c566
 
-Code used for fragment and signal endpoints:
+Code used for fragment and signal endpoints using ServerSentEventGenerator from https://github.com/starfederation/datastar-php:
 ```
 (defn fragment-handler [req]
   (let [sse (php/new ServerSentEventGenerator)]
