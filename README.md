@@ -2,7 +2,7 @@
 
 Demonstrates integrating Datastar hypermedia framework (https://data-star.dev/) with Phel which can be a good match.
 
-Vanilla PHP being single threaded and non-async the web UI gets blocked and queues new requests while the SSE response is streaming back as seen in the video below.
+Vanilla PHP being single threaded and non-async the web UI gets blocked and queues new requests while the SSE response is streaming back as seen in the video below after pressing "Fetch signal" the second time at 00:20.
 
 https://github.com/user-attachments/assets/a3ad3fd8-2e30-462a-99ef-439fb479c566
 
