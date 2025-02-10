@@ -21,9 +21,9 @@
   )
 
 (def- counter-demo
-  [:div {:class "flex-center position-ref"}
+  [:div {:class "flex-center position-ref" :data-signals-counter "0"}
    [:p {:data-show "$counter == 0"} "Counter"]
-   [:button {:data-signals-counter "0" :data-on-click "$counter++" :style "margin-right: 1em; margin-left: 1em;"}
+   [:button {:data-on-click "$counter++" :style "margin-right: 1em; margin-left: 1em;"}
     "Increment"]
    [:p {:data-show "$counter != 0" :data-text "$counter"}]
    ])
