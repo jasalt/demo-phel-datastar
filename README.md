@@ -2,7 +2,11 @@
 
 Demonstrates integrating Datastar hypermedia framework (https://data-star.dev/) with Phel which can be a good match.
 
-Vanilla PHP being single threaded and non-async the web UI gets blocked and queues new requests while the SSE response is streaming back as seen in the video below, phenomena which is discussed in video https://www.youtube.com/watch?v=hUqFY9TQvdM.
+Vanilla PHP being single threaded and non-async the web UI gets blocked and queues new requests while the SSE response is streaming back as seen in the video below.
+
+https://github.com/user-attachments/assets/a3ad3fd8-2e30-462a-99ef-439fb479c566
+
+PHP and Go differences are discussed in Datastar podcast video https://www.youtube.com/watch?v=hUqFY9TQvdM.
 
 The original Phel Web Skeleton README continues, follow it to run this locally.
 
