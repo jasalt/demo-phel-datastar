@@ -17,12 +17,10 @@
         (php/-> sse (mergeFragments
                      (html [:div {:id "fragment-container"}
                             "Time at backend: " (php/time)])))
-        (php/sleep 1)  # requests are blocked during this sleep..
-        )))
+        # NOTE requests are blocked during this sleep..
+        (php/sleep 1))))
 
 (defn signal-handler [req]
   (let [sse (php/new ServerSentEventGenerator)]
     (php/-> sse (mergeSignals
-                 (to-php-array {"input" (str "hostname: " (php/gethostname))})))
-    )
-  )
+                 (to-php-array {"input" (str "hostname: " (php/gethostname))})))))

@@ -6,6 +6,26 @@ Vanilla PHP being single threaded and non-async the web UI gets blocked and queu
 
 https://github.com/user-attachments/assets/a3ad3fd8-2e30-462a-99ef-439fb479c566
 
+Code used for fragment and signal endpoints:
+```
+(defn fragment-handler [req]
+  (let [sse (php/new ServerSentEventGenerator)]
+      (dofor [x :range [0 10]]
+        (php/-> sse (mergeFragments
+                     (html [:div {:id "fragment-container"}
+                            "Time at backend: " (php/time)])))
+        # NOTE requests are blocked during this sleep..
+        (php/sleep 1))))
+
+(defn signal-handler [req]
+  (let [sse (php/new ServerSentEventGenerator)]
+    (php/-> sse (mergeSignals
+                 (to-php-array {"input" (str "hostname: " (php/gethostname))})))))
+
+```
+
+Main view at `src/web-skeleton/view/main`.
+
 PHP and Go differences are discussed in Datastar podcast video https://www.youtube.com/watch?v=hUqFY9TQvdM.
 
 The original Phel Web Skeleton README continues, follow it to run this locally.
