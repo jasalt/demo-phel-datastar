@@ -1,6 +1,6 @@
 # Phel Datastar demo
 
-Demonstrates integrating Datastar hypermedia framework (https://data-star.dev/) with Phel which can be a good match.
+Demonstrates integrating Datastar hypermedia framework (https://data-star.dev/) utilising server-sent events with Phel which can be a good match.
 
 Vanilla PHP being single threaded and non-async the web UI gets blocked and queues new requests while the SSE response is streaming back as seen in the video below after pressing "Fetch signal" the second time at 00:20.
 
