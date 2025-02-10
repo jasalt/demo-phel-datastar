@@ -15,13 +15,14 @@ Code used for fragment and signal endpoints using ServerSentEventGenerator from 
                      (html [:div {:id "fragment-container"}
                             "Time at backend: " (php/time)])))
         # NOTE requests are blocked during this sleep..
-        (php/sleep 1))))
+        (php/sleep 1))
+      (php/die)))
 
 (defn signal-handler [req]
   (let [sse (php/new ServerSentEventGenerator)]
     (php/-> sse (mergeSignals
-                 (to-php-array {"input" (str "hostname: " (php/gethostname))})))))
-
+                 (to-php-array {"input" (str "hostname: " (php/gethostname))})))
+    (php/die)))
 ```
 
 Main view at [`src/view/main.phel`](https://github.com/jasalt/demo-phel-datastar/blob/main/src/view/main.phel).
